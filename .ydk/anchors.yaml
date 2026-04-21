@@ -1,0 +1,56 @@
+version: 1
+
+anchors:
+  - target:
+      kind: file
+      path: .ydk/model.yaml
+    node: D-001
+    reason: Defines the configurable ontology used by this project.
+
+  - target:
+      kind: file
+      path: .ydk/graph.yaml
+    node: D-001
+    reason: Stores the project-specific purpose graph in version control.
+
+  - target:
+      kind: file
+      path: .ydk/anchors.yaml
+    node: D-002
+    reason: Keeps implementation artifact mappings separate from the intent graph.
+
+  - target:
+      kind: file
+      path: README.md
+    node: M-001
+    reason: Introduces pit as a lightweight prompt iteration tool.
+
+  - target:
+      kind: file
+      path: package.json
+    node: F-003
+    reason: Defines the scripts used to run and verify the prompt tool.
+
+  - target:
+      kind: file
+      path: src/cli.ts
+    node: F-001
+    reason: Provides the command interface for creating and inspecting prompt snapshots.
+
+  - target:
+      kind: file
+      path: src/store.ts
+    node: C-002
+    reason: Persists prompt records and the selected prompt under repo-local .pit metadata.
+
+  - target:
+      kind: file
+      path: src/types.ts
+    node: D-003
+    reason: Defines the prompt record shape written to YAML.
+
+  - target:
+      kind: file
+      path: tests/pit.test.ts
+    node: F-003
+    reason: Verifies that the metadata store remains predictable as the project grows.

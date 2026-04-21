@@ -1,0 +1,7 @@
+id: P-0001
+message: Create baseline pit CLI
+prompt: "Build the first small version of pit: a TypeScript CLI that stores
+  prompt snapshots in repo-local metadata, records lightweight ancestry, and
+  links prompts to git commits when available."
+createdAt: 2026-04-21T23:16:25.899Z
+git: {}
