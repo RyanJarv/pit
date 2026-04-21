@@ -1,0 +1,13 @@
+id: P-0003
+message: Add prompt diff command
+prompt: Add a pit diff command so users and agents can compare a prompt snapshot
+  with its parent, making prompt experiments easier to understand without
+  reading raw YAML.
+parent: P-0002
+createdAt: 2026-04-21T23:33:01.254Z
+git:
+  baseCommit: eb629552f4e68996a283cbf1cc8003e96b3b2aa1
+  resultCommit: eb629552f4e68996a283cbf1cc8003e96b3b2aa1
+result:
+  note: Added prompt diff command and verified it against the current prompt chain.
+  recordedAt: 2026-04-21T23:33:48.723Z

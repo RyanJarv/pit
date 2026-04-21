@@ -1,0 +1,13 @@
+id: P-0002
+message: Explain pit state artifacts with ydk
+prompt: "Update pit's ydk configuration so the actual prompt-state artifacts
+  produced by pit are explainable: .pit/head and .pit/prompts/*.yaml should
+  trace to the prompt experiment mission."
+parent: P-0001
+createdAt: 2026-04-21T23:32:37.415Z
+git:
+  baseCommit: eb629552f4e68996a283cbf1cc8003e96b3b2aa1
+  resultCommit: eb629552f4e68996a283cbf1cc8003e96b3b2aa1
+result:
+  note: Added ydk pattern anchor support and anchored pit prompt-state artifacts.
+  recordedAt: 2026-04-21T23:33:01.148Z

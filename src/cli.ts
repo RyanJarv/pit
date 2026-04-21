@@ -30,6 +30,9 @@ async function main(argv: string[]): Promise<void> {
     case "show":
       await showPrompt(args);
       return;
+    case "diff":
+      await diffPrompt(args);
+      return;
     case "checkout":
       await checkoutPrompt(args);
       return;
@@ -89,6 +92,24 @@ async function showPrompt(args: string[]): Promise<void> {
   const id = await requirePromptId(args[0]);
   const record = await readPrompt(id);
   console.log(YAML.stringify(record));
+}
+
+async function diffPrompt(args: string[]): Promise<void> {
+  const options = parseOptions(args);
+  const id = await requirePromptId(options.positionals[0]);
+  const record = await readPrompt(id);
+  const parentId = (options.parent as PromptId | undefined) ?? record.parent;
+
+  if (!parentId) {
+    throw new Error(`${id} has no parent; pass --parent <id> to compare explicitly`);
+  }
+
+  const parent = await readPrompt(parentId);
+  console.log(`diff ${parent.id} -> ${record.id}`);
+  console.log(`- ${parent.message}`);
+  console.log(`+ ${record.message}`);
+  console.log("");
+  console.log(formatLineDiff(parent.prompt, record.prompt));
 }
 
 async function checkoutPrompt(args: string[]): Promise<void> {
@@ -154,6 +175,20 @@ function firstLine(value: string): string {
   return value.trim().split(/\r?\n/, 1)[0] || "Untitled prompt";
 }
 
+function formatLineDiff(before: string, after: string): string {
+  const beforeLines = before.trimEnd().split(/\r?\n/);
+  const afterLines = after.trimEnd().split(/\r?\n/);
+
+  if (before === after) {
+    return "prompt text unchanged";
+  }
+
+  return [
+    ...beforeLines.map((line) => `- ${line}`),
+    ...afterLines.map((line) => `+ ${line}`),
+  ].join("\n");
+}
+
 function printHelp(): void {
   console.log(`pit
 
@@ -163,6 +198,7 @@ Commands:
   pit add --file <path> [--message <text>] [--parent <id>]
   pit list
   pit show [id]
+  pit diff [id] [--parent <id>]
   pit checkout <id>
   pit record-result [id] [--note <text>]
 `);
@@ -172,4 +208,3 @@ main(process.argv.slice(2)).catch((error: unknown) => {
   console.error(error instanceof Error ? error.message : String(error));
   process.exitCode = 1;
 });
-

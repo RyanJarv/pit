@@ -21,6 +21,18 @@ anchors:
 
   - target:
       kind: file
+      path: .pit/head
+    node: F-001
+    reason: Stores the currently selected prompt snapshot for the repo.
+
+  - target:
+      kind: filePattern
+      path: .pit/prompts/*.yaml
+    node: C-001
+    reason: Stores prompt snapshots that can be compared across implementation attempts.
+
+  - target:
+      kind: file
       path: README.md
     node: M-001
     reason: Introduces pit as a lightweight prompt iteration tool.

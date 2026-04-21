@@ -15,6 +15,7 @@ npm run pit -- init
 npm run pit -- add "Initial project prompt" --message "Create the baseline app"
 npm run pit -- list
 npm run pit -- show P-0001
+npm run pit -- diff P-0002
 npm run pit -- record-result P-0001 --note "Generated the first working CLI"
 ```
 
