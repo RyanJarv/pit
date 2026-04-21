@@ -4,4 +4,8 @@ prompt: "Build the first small version of pit: a TypeScript CLI that stores
   prompt snapshots in repo-local metadata, records lightweight ancestry, and
   links prompts to git commits when available."
 createdAt: 2026-04-21T23:16:25.899Z
-git: {}
+git:
+  resultCommit: d948eeeb12b91c7d1c069482cd083fd84c92af79
+result:
+  note: Initial implementation committed as the baseline pit CLI.
+  recordedAt: 2026-04-21T23:16:42.424Z
