@@ -21,6 +21,10 @@ nodes:
     type: capability
     title: Connect prompt records to git repository state
 
+  - id: C-003
+    type: capability
+    title: Compare prompt variants and their outcomes
+
   - id: F-001
     type: feature
     title: Add, list, show, and select prompt snapshots
@@ -33,17 +37,9 @@ nodes:
     type: feature
     title: Keep pit metadata simple enough to inspect and edit
 
-  - id: D-001
-    type: decision
-    title: Store prompt data in repo-local .pit metadata
-
-  - id: D-002
-    type: decision
-    title: Use git for code history instead of duplicating version control
-
-  - id: D-003
-    type: decision
-    title: Use YAML records for prompt snapshots
+  - id: F-004
+    type: feature
+    title: Show differences between prompt snapshots
 
 edges:
   - from: O-001
@@ -58,46 +54,22 @@ edges:
     to: O-001
     type: supports
 
+  - from: C-003
+    to: O-001
+    type: supports
+
   - from: F-001
     to: C-001
     type: supports
 
   - from: F-002
-    to: C-001
+    to: C-002
     type: supports
 
   - from: F-003
-    to: C-002
+    to: C-001
     type: supports
 
-  - from: D-001
-    to: F-001
-    type: constrains
-
-  - from: D-001
-    to: F-002
-    type: constrains
-
-  - from: D-001
-    to: F-003
-    type: constrains
-
-  - from: D-001
-    to: C-001
-    type: constrains
-
-  - from: D-002
-    to: C-001
-    type: constrains
-
-  - from: D-002
-    to: C-002
-    type: constrains
-
-  - from: D-003
-    to: C-002
-    type: constrains
-
-  - from: D-003
-    to: F-003
-    type: constrains
+  - from: F-004
+    to: C-003
+    type: supports

@@ -1,0 +1,14 @@
+id: P-0004
+message: Simplify pit purpose graph
+prompt: "Simplify pit's ydk graph to current-state purpose only: remove
+  configurable ontology and decision nodes, keep
+  mission/outcome/capability/feature nodes plus anchors and file patterns."
+parent: P-0003
+createdAt: 2026-04-22T00:04:01.151Z
+git:
+  baseCommit: 361cbe4c546619a2d7721efe18067db02608c8db
+  resultCommit: 361cbe4c546619a2d7721efe18067db02608c8db
+result:
+  note: Removed model.yaml and decision nodes from pit's ydk graph; validation
+    still passes with current-state purpose nodes.
+  recordedAt: 2026-04-22T00:04:40.740Z
